@@ -1,0 +1,30 @@
+.poker-card {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    font-size: 3em;
+    color:saddlebrown;
+    background-color:wheat;
+    &.big {
+        font-size: 11em;
+        height: 2em;
+        margin: 0.2em;
+    }
+    &.hidden {
+        background-color: saddlebrown;
+    }
+}
+.result-container
+{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.btn-hide 
+{
+    width: 80%;
+}
+

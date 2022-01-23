@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="navbar">
+        <a mat-raised-button color="accent" (click)="reinitCards()" [disabled]="!inSingleCardMode()">Réinitialiser
+            les
+            cartes</a>
+        <mat-slide-toggle (change)="onChange($event)" [disabled]="inSingleCardMode()">
+            Cacher automatiquement la carte choisie
+        </mat-slide-toggle>
+    </div>
+    <div *ngIf="!inSingleCardMode(); else singleCard">
+        <mat-grid-list cols="5">
+            <mat-grid-tile *ngFor="let cardFaceValue of cards">
+                <mat-card class="poker-card" (click)="select(cardFaceValue)">
+                    {{ cardFaceValue }}
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+
+<ng-template #singleCard>
+    <div class="result-container">
+        <mat-card class="poker-card big" [class]="!selectedCardIsShown?'hidden':''">{{ selectedCardIsShown?
+            currentlySelectedCard:"" }}
+        </mat-card>
+        <a mat-raised-button (click)="toggleCard()" class="btn-hide" mat-raised-btn color="primary">{{
+            selectedCardIsShown?
+            "Cacher":"Révéler" }} la carte</a>
+    </div>
+</ng-template>
